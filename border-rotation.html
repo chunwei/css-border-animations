@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Rotation Animation</title>
+    <style>
+        .container {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            margin: 50px auto;
+            border: 2px solid #2196F3;
+        }
+
+        .rotator {
+            width: 10px;
+            height: 10px;
+            background: #FF5722;
+            border-radius: 50%;
+            position: absolute;
+            offset-path: border-box; /* 沿容器边框路径运动 */
+            offset-rotate: 0deg;     /* 固定元素角度 */
+            animation: orbit 4s linear infinite;
+        }
+
+        @keyframes orbit {
+            0% { offset-distance: 0% }
+            100% { offset-distance: 100% }
+        }
+
+        /* 兼容textarea容器 */
+        textarea.container {
+            padding: 10px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 矩形容器示例 -->
+    <div class="container">
+        <div class="rotator"></div>
+    </div>
+
+    <!-- 文本框容器示例 -->
+    <textarea class="container" rows="6">文本框边界动画示例</textarea>
+</body>
+</html>
